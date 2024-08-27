@@ -4,13 +4,20 @@ import categories from './categories';
 import globalGroups from './globalGroups';
 
 export default defineGkdSubscription({
-  id: 233,
-  name: 'Subscription',
-  version: 0,
-  author: 'author',
-  checkUpdateUrl: './gkd.version.json5',
-  supportUri: 'https://github.com/gkd-kit/subscription-template',
-  categories,
-  globalGroups,
-  apps: await batchImportApps(`${import.meta.dirname}/apps`),
+  id: 'com.kmxs.reader',
+  name: '七猫免费小说',
+  groups: [
+    {
+      key: 1,
+      name: '阅读中广告',
+      rules: '[id="com.kmxs.reader:id/bubble_close"]',
+      snapshotUrls: ['https://i.gkd.li/snapshot/1724762024501'],
+    },
+    {
+      key: 2,
+      name: '阅读中广告',
+      rules: '[id="com.kmxs.reader:id/ad_direct_close"]',
+      snapshotUrls: ['https://i.gkd.li/snapshot/1724762024501'],
+    },
+  ]
 });
